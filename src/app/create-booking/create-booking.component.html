@@ -1,0 +1,77 @@
+<div class="card">
+  <div class="card-header">
+    <h5>Eine neue Buchung erstellen</h5>
+  </div>
+
+  <div class="card-body">
+    <form action="">
+      <div class="row">
+        <div class="col">
+          <label for="exampleInputId" class="form-label">ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInputId"
+            aria-describedby="IdHelp"
+          />
+          <div id="IdHelp" class="form-text">Bitte ID eingeben.</div>
+        </div>
+        <div class="col">
+          <label for="exampleInputRoom" class="form-label">Raumnummer</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInputRoom"
+            aria-describedby="roomHelp"
+          />
+          <div id="roomHelp" class="form-text">Bitte Raumnummer vergeben.</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="exampleInputName" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputName"
+            aria-describedby="nameHelp"
+          />
+          <div id="nameHelp" class="form-text"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="exampleInputDate" class="form-label"
+            >Ankunfts Datum</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="exampleInputDate"
+            aria-describedby="dateHelp"
+          />
+          <div id="dateHelp" class="form-text">
+            Bitte Datum der Ankunft eintragen
+          </div>
+        </div>
+        <div class="col">
+          <label for="exampleInputDepartureDate" class="form-label"
+            >Abreise Datum</label
+          >
+          <input
+            type="date"
+            class="form-control"
+            id="exampleInputDepartureDate"
+            aria-describedby="dateDepartureHelp"
+          />
+          <div id="dateDepartureHelp" class="form-text">
+            Bitte Datum der Abreise eintragen
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="card-footer text-end">
+    <button class="btn btn-primary">Erstellen</button>
+  </div>
+</div>
