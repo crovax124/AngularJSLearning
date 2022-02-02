@@ -6,41 +6,48 @@
   <div class="card-body">
     <form action="">
       <div class="row">
-        <div class="col">
-          <label for="exampleInputId" class="form-label">ID</label>
-          <input
-            type="number"
-            class="form-control"
-            id="exampleInputId"
-            aria-describedby="IdHelp"
-          />
-          <div id="IdHelp" class="form-text">Bitte ID eingeben.</div>
-        </div>
-        <div class="col">
-          <label for="exampleInputRoom" class="form-label">Raumnummer</label>
-          <input
-            type="number"
-            class="form-control"
-            id="exampleInputRoom"
-            aria-describedby="roomHelp"
-          />
-          <div id="roomHelp" class="form-text">Bitte Raumnummer vergeben.</div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
+        <div class="col-4 mx-4">
           <label for="exampleInputName" class="form-label">Name</label>
           <input
             type="text"
             class="form-control"
             id="exampleInputName"
             aria-describedby="nameHelp"
+            [(ngModel)]="booking.name"
+            name="name"
           />
           <div id="nameHelp" class="form-text"></div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="row justify-content-between">
+        <div class="col-2 mx-4">
+          <label for="exampleInputId" class="form-label">ID</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInputId"
+            aria-describedby="IdHelp"
+            [(ngModel)]="booking.id"
+            name="id"
+          />
+          <div id="IdHelp" class="form-text">Bitte ID eingeben.</div>
+        </div>
+        <div class="col-2 mx-4">
+          <label for="exampleInputRoom" class="form-label">Raumnummer</label>
+          <input
+            type="number"
+            class="form-control"
+            id="exampleInputRoom"
+            aria-describedby="roomHelp"
+            [(ngModel)]="booking.roomNumber"
+            name="roomNumber"
+          />
+          <div id="roomHelp" class="form-text">Bitte Raumnummer vergeben.</div>
+        </div>
+      </div>
+
+      <div class="row justify-content-between">
+        <div class="col-2 mx-4">
           <label for="exampleInputDate" class="form-label"
             >Ankunfts Datum</label
           >
@@ -49,12 +56,15 @@
             class="form-control"
             id="exampleInputDate"
             aria-describedby="dateHelp"
+            [value]="booking.startDate | date: 'yyyy-MM-dd'"
+            (input)="dateChanged($event, true)"
+            name="arrivalDate"
           />
           <div id="dateHelp" class="form-text">
             Bitte Datum der Ankunft eintragen
           </div>
         </div>
-        <div class="col">
+        <div class="col-2 mx-4">
           <label for="exampleInputDepartureDate" class="form-label"
             >Abreise Datum</label
           >
@@ -63,6 +73,9 @@
             class="form-control"
             id="exampleInputDepartureDate"
             aria-describedby="dateDepartureHelp"
+            [value]="booking.endDate | date: 'yyyy-MM-dd'"
+            (input)="dateChanged($event, false)"
+            name="departureDate"
           />
           <div id="dateDepartureHelp" class="form-text">
             Bitte Datum der Abreise eintragen
@@ -71,7 +84,7 @@
       </div>
     </form>
   </div>
-  <div class="card-footer text-end">
-    <button class="btn btn-primary">Erstellen</button>
+  <div class="card-footer text-center">
+    <button (click)="save()" class="btn btn-primary">Erstellen</button>
   </div>
 </div>
