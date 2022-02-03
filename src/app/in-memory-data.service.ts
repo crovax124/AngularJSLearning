@@ -37,7 +37,7 @@ export class InMemoryDataService implements InMemoryDbService {
         endDate: new Date('2022-08-03'),
       },
     ];
-    return bookings;
+    return { bookings };
   }
   constructor() {}
 }
