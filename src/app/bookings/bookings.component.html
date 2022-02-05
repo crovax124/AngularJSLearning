@@ -1,9 +1,9 @@
 <div class="list-group" *ngFor="let booking of bookings">
-  <div class="mb-2 list-group-item">
+  <div class="mb-2 list-group-item bg-dark text-light">
     <div class="d-flex w-100 justify-content-between">
       <a
         routerLink="/edit-booking/{{ booking.id }}"
-        class="mb-1 h5 text-decoration-none"
+        class="mb-1 h5 text-decoration-none text-light"
       >
         {{ booking.name }}
       </a>

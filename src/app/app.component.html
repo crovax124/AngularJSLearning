@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-light fixed-top">
+<nav class="navbar navbar-dark bg-dark fixed-top border-light">
   <div class="container-fluid">
     <a class="navbar-brand">Hotel Buchungen</a>
     <button
@@ -11,7 +11,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div
-      class="offcanvas offcanvas-end"
+      class="offcanvas offcanvas-end bg-dark text-light"
       tabindex="-1"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
@@ -39,6 +39,9 @@
               >Buchung erstellen</a
             >
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/event-signup">Event erstellen</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -46,7 +49,9 @@
 </nav>
 
 <div class="container pt-4 mt-5">
-  <div class="h-100 p-5 bg-light border rounded-3 text-center">
+  <div
+    class="h-100 p-5 bg-light border rounded-3 text-center bg-dark text-light"
+  >
     <div class="display-4">{{ title }}</div>
   </div>
   <hr />

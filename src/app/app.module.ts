@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { EventSignUpComponent } from './event-sign-up/event-sign-up.component';
 
 @NgModule({
-  declarations: [AppComponent, BookingsComponent, CreateBookingComponent],
+  declarations: [AppComponent, BookingsComponent, CreateBookingComponent, EventSignUpComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

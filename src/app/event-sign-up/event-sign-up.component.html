@@ -1,0 +1,62 @@
+<form #formSignup="ngForm" action="">
+  <div
+    [class.bg-danger]="formSignup.invalid"
+    [class.bg-dark]="!formSignup.invalid"
+    class="card text-light border-light"
+  >
+    <div class="card-header border-light">
+      <h5>Event Benachrichtigungen</h5>
+    </div>
+    <div class="card-body border-light">
+      <div class="row mb-4">
+        <div class="col">
+          <input
+            #inputeMail="ngModel"
+            [(ngModel)]="signupMail"
+            name="signupMail"
+            type="email"
+            class="form-control"
+            placeholder="Bitte eMail eintragen."
+            required
+            minlength="6"
+            email
+          />
+        </div>
+      </div>
+      <div
+        *ngIf="inputeMail.invalid && (inputeMail.touched || inputeMail.dirty)"
+        class="row"
+      >
+        <div class="col">
+          <div
+            *ngIf="inputeMail.errors?.['required']"
+            class="alert bg-danger altert-danger"
+          >
+            E-mail Adresse ist erforderlich.
+          </div>
+          <div
+            *ngIf="inputeMail.errors?.['minlength']"
+            class="alert bg-danger altert-danger"
+          >
+            Min 6 zeichen erforderlich.
+          </div>
+          <div
+            *ngIf="inputeMail.errors?.['email'] && !inputeMail.hasError('minlength')"
+            class="alert bg-danger altert-danger"
+          >
+            Keine gültige Email Adresse.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer border-light">
+      <button
+        [disabled]="formSignup.invalid"
+        (click)="onSubmit()"
+        class="btn-primary btn bg-light text-dark"
+      >
+        Eintragen
+      </button>
+    </div>
+  </div>
+</form>
