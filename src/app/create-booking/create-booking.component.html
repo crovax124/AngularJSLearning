@@ -2,21 +2,25 @@
   <div class="card-header border-light">
     <h5>Eine neue Buchung erstellen</h5>
   </div>
-
-  <div class="card-body border-light">
-    <form action="">
+  <form [formGroup]="bookingForm" (ngSubmit)="save()">
+    <div class="card-body border-light">
       <div class="row">
         <div class="col-4 mx-4">
-          <label for="exampleInputName" class="form-label">Name</label>
+          <label for="exampleInputName" class="form-label">Guest Name</label>
           <input
             type="text"
             class="form-control"
             id="exampleInputName"
             aria-describedby="nameHelp"
-            [(ngModel)]="booking.name"
-            name="name"
+            formControlName="name"
           />
           <div id="nameHelp" class="form-text"></div>
+          <label
+            *ngIf="bookingForm.get('name')?.hasError('minlength')"
+            for="exampleInputName"
+            class="text-warning"
+            >Der Name ist zu Kurz</label
+          >
         </div>
       </div>
       <div class="row justify-content-between">
@@ -27,8 +31,7 @@
             class="form-control"
             id="exampleInputId"
             aria-describedby="IdHelp"
-            [(ngModel)]="booking.id"
-            name="id"
+            formControlName="id"
           />
           <div id="IdHelp" class="form-text">Bitte ID eingeben.</div>
         </div>
@@ -39,8 +42,7 @@
             class="form-control"
             id="exampleInputRoom"
             aria-describedby="roomHelp"
-            [(ngModel)]="booking.roomNumber"
-            name="roomNumber"
+            formControlName="roomNumber"
           />
           <div id="roomHelp" class="form-text">Bitte Raumnummer vergeben.</div>
         </div>
@@ -59,6 +61,7 @@
             [value]="booking.startDate | date: 'yyyy-MM-dd'"
             (input)="dateChanged($event, true)"
             name="arrivalDate"
+            formControlName="startDate"
           />
           <div id="dateHelp" class="form-text">
             Bitte Datum der Ankunft eintragen
@@ -76,15 +79,22 @@
             [value]="booking.endDate | date: 'yyyy-MM-dd'"
             (input)="dateChanged($event, false)"
             name="departureDate"
+            formControlName="endDate"
           />
           <div id="dateDepartureHelp" class="form-text">
             Bitte Datum der Abreise eintragen
           </div>
         </div>
       </div>
-    </form>
-  </div>
-  <div class="card-footer text-center border-light">
-    <button (click)="save()" class="btn btn-primary">Erstellen</button>
-  </div>
+    </div>
+    <div class="card-footer text-center border-light">
+      <button
+        [disabled]="bookingForm.invalid"
+        type="submit"
+        class="btn btn-primary"
+      >
+        Erstellen
+      </button>
+    </div>
+  </form>
 </div>
